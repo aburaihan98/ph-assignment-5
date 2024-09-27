@@ -3,6 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome cdn  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <!-- google font  -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,12 +35,15 @@
   </head>
   <body class="font-lexend">
     <!-- navbar start  -->
-    <header class="sticky top-0 bg-transparent backdrop-blur-xl z-10">
+    <header
+      id="header"
+      class="sticky top-0 bg-transparent backdrop-blur-xl z-10"
+    >
       <nav class="bg-[#F9F7F3]">
         <div class="w-11/12 m-auto">
           <div class="navbar bg-base-100 pt-6 bg-[#F9F7F3]">
             <div class="navbar-start">
-              <div class="btn bg-[#B4F461]">Blog</div>
+              <div id="blog-btn" class="btn bg-[#B4F461]">Blog</div>
             </div>
             <div class="navbar-center gap-4">
               <div class="">
@@ -45,7 +56,9 @@
                 <img src="assets/coin.png" alt="coin" />
               </button>
               <button class="">
-                <div class="indicator">5500 BDT</div>
+                <div class="indicator gap-2">
+                  <span id="reserve-amount">5500</span> <span>BDT</span>
+                </div>
               </button>
             </div>
           </div>
@@ -53,14 +66,15 @@
         </div>
       </nav>
       <!-- button start  -->
-      <div class="flex justify-center gap-4 pt-20 pb-6">
-        <button class="btn bg-[#B4F461]">Donation</button>
-        <button class="btn bg-white">History</button>
+      <div id="button" class="flex justify-center gap-4 pt-20 pb-6">
+        <button id="donation" class="btn bg-[#B4F461]">Donation</button>
+        <button id="history" class="btn">History</button>
       </div>
       <!-- button end -->
     </header>
     <!-- navbar end  -->
-    <main id="home" class="w-11/12 m-auto">
+    <!-- home main start  -->
+    <main id="home" class="w-11/12 m-auto space-y-8">
       <!-- card 1 -->
       <div class="p-8 border rounded-2xl">
         <div class="card bg-base-100 flex flex-col lg:flex-row gap-4">
@@ -70,101 +84,198 @@
             </div>
           </figure>
           <div class="card-body lg:flex-1 p-0">
-            <button class="btn lg:w-1/4">
-              <div>
-                <img src="assets/coin.png" alt="coin" />
-              </div>
-              <div>0 BDT</div>
-            </button>
-            <h2 class="card-title">Donate for Flood at Noakhali, Bangladesh</h2>
+            <div
+              class="py-2.5 px-4 rounded-lg lg:w-3/12 flex flex-row justify-center items-center gap-2 bg-[#1111110D]"
+            >
+              <img src="assets/coin.png" alt="coin" />
+              <span id="donation-btn1">0</span> <span> BDT </span>
+            </div>
+            <h2 id="title1" class="card-title">
+              Donate for Flood at Noakhali, Bangladesh
+            </h2>
             <p>
-              The recent floods in Noakhali have caused significant damage to
-              homes infrastructure. Your donation will help provide essential
-              supplies and to those affected by this disaster. Every
-              contribution, big or small, makes difference. Please join us in
-              supporting the relief efforts and making a positive impact on the
-              lives of those in need.
+              Donate to support flood relief efforts in Noakhali, Bangladesh,
+              where communities are suffering from severe flooding. Your
+              contribution will provide emergency aid such as food, clean water,
+              medical supplies, and temporary shelter to those displaced. Help
+              rebuild lives and restore hope for families facing this natural
+              disaster. Every donation can make a significant impact in saving
+              lives and supporting long-term recovery efforts.
             </p>
             <input
+              id="input-btn1"
               class="p-3 border rounded-lg"
               type="text"
               placeholder="Write Donation Amount"
             />
-            <button class="btn bg-[#B4F461]">Donate Now</button>
+            <!-- Open the modal using ID.showModal() method -->
+            <button
+              class="btn bg-[#B4F461]"
+              onclick="my_modal_1.showModal(); btnFun(1)"
+            >
+              Donate Now
+            </button>
           </div>
         </div>
       </div>
       <!-- card 2 -->
-      <div class="mt-8 p-8 border rounded-2xl">
+      <div class="p-8 border rounded-2xl">
         <div class="card bg-base-100 flex flex-col lg:flex-row gap-4">
           <figure class="flex-1">
             <div>
               <img src="assets/feni.png" alt="Shoes" />
             </div>
           </figure>
-          <div class="card-body flex-1 p-0">
-            <button class="btn w-1/4">
-              <div>
-                <img src="assets/coin.png" alt="coin" />
-              </div>
-              <div>0 BDT</div>
-            </button>
-            <h2 class="card-title">
+          <div class="card-body lg:flex-1 p-0">
+            <div
+              class="py-2.5 px-4 rounded-lg lg:w-3/12 flex flex-row justify-center items-center gap-2 bg-[#1111110D]"
+            >
+              <img src="assets/coin.png" alt="coin" />
+              <span id="donation-btn2">0</span> <span> BDT </span>
+            </div>
+            <h2 id="title2" class="card-title">
               Donate for Flood Relief in Feni,Bangladesh
             </h2>
             <p>
-              The recent floods in Noakhali have caused significant damage to
-              homes infrastructure. Your donation will help provide essential
-              supplies and to those affected by this disaster. Every
-              contribution, big or small, makes difference. Please join us in
-              supporting the relief efforts and making a positive impact on the
-              lives of those in need.
+              Support the flood relief efforts in Feni, Bangladesh, where
+              devastating floods have left countless families displaced and in
+              need of urgent assistance. Your donations will provide essential
+              resources such as clean water, food, medical care, and temporary
+              shelter to those affected. Help rebuild communities and offer hope
+              to those facing extreme hardships. Every contribution, no matter
+              how small, can make a life-changing difference for flood victims.
+              Act now and lend a hand in recovery.
             </p>
             <input
+              id="input-btn2"
               class="p-3 border rounded-lg"
               type="text"
               placeholder="Write Donation Amount"
             />
-            <button class="btn bg-[#B4F461]">Donate Now</button>
+            <!-- Open the modal using ID.showModal() method -->
+            <button
+              class="btn bg-[#B4F461]"
+              onclick="my_modal_1.showModal(); btnFun(2)"
+            >
+              Donate Now
+            </button>
           </div>
         </div>
       </div>
       <!-- card 3 -->
-      <div class="mt-8 p-8 border rounded-2xl">
+      <div class="p-8 border rounded-2xl">
         <div class="card bg-base-100 flex flex-col lg:flex-row gap-4">
           <figure class="flex-1">
             <div>
               <img src="assets/quota-protest.png" alt="Shoes" />
             </div>
           </figure>
-          <div class="card-body flex-1 p-0">
-            <button class="btn w-1/4">
-              <div>
-                <img src="assets/coin.png" alt="coin" />
-              </div>
-              <div>0 BDT</div>
-            </button>
-            <h2 class="card-title">Aid for Injured in the Quota Movement</h2>
+          <div class="card-body lg:flex-1 p-0">
+            <div
+              class="py-2.5 px-4 rounded-lg lg:w-3/12 flex flex-row justify-center items-center gap-2 bg-[#1111110D]"
+            >
+              <img src="assets/coin.png" alt="coin" />
+              <span id="donation-btn3">0</span> <span> BDT </span>
+            </div>
+            <h2 id="title3" class="card-title">
+              Aid for Injured in the Quota Movement
+            </h2>
             <p>
-              The recent floods in Noakhali have caused significant damage to
-              homes infrastructure. Your donation will help provide essential
-              supplies and to those affected by this disaster. Every
-              contribution, big or small, makes difference. Please join us in
-              supporting the relief efforts and making a positive impact on the
-              lives of those in need.
+              Support the injured individuals from the Quota Movement, a protest
+              calling for fair employment opportunities in Bangladesh. Many
+              participants have faced serious injuries during demonstrations,
+              and they now need urgent medical care, rehabilitation, and
+              financial assistance to recover. Your donations can help cover
+              hospital bills, ongoing treatments, and provide hope for a better
+              future. Stand with these brave individuals by contributing to
+              their recovery and supporting their fight for equality and
+              justice.
             </p>
             <input
+              id="input-btn3"
               class="p-3 border rounded-lg"
               type="text"
               placeholder="Write Donation Amount"
             />
-            <button class="btn bg-[#B4F461]">Donate Now</button>
+            <!-- Open the modal using ID.showModal() method -->
+            <button
+              class="btn bg-[#B4F461]"
+              onclick="my_modal_1.showModal(); btnFun(3)"
+            >
+              Donate Now
+            </button>
           </div>
         </div>
       </div>
     </main>
-    <main id="blog"></main>
-
+    <!-- home main end  -->
+    <!-- blog main star  -->
+    <main id="blog" class="hidden w-11/12 m-auto space-y-5 mb-36">
+      <h2 class="text-3xl p-10 font-extrabold">
+        Important FAQ <i class="fa-solid fa-question"></i>
+      </h2>
+      <div class="collapse bg-base-200">
+        <input type="checkbox" />
+        <div class="collapse-title text-xl font-medium">
+          What is the DOM used for?
+        </div>
+        <div class="collapse-content">
+          <p>
+            The DOM allows JavaScript to dynamically access, manipulate, and
+            modify HTML elements, content, attributes, and styles on webpages.
+          </p>
+        </div>
+      </div>
+      <div class="collapse bg-base-200">
+        <input type="checkbox" />
+        <div class="collapse-title text-xl font-medium">
+          How does DOM represent HTML documents?
+        </div>
+        <div class="collapse-content">
+          <p>
+            The DOM represents HTML as a hierarchical tree structure, with nodes
+            for elements, attributes, and content, allowing programmatic
+            interaction.
+          </p>
+        </div>
+      </div>
+      <div class="collapse bg-base-200">
+        <input type="checkbox" />
+        <div class="collapse-title text-xl font-medium">
+          How can the DOM be manipulated?
+        </div>
+        <div class="collapse-content">
+          <p>
+            JavaScript can manipulate the DOM by adding, removing, or modifying
+            elements, attributes, and content in real-time, making websites
+            dynamic.
+          </p>
+        </div>
+      </div>
+      <div class="collapse bg-base-200">
+        <input type="checkbox" />
+        <div class="collapse-title text-xl font-medium">
+          What is a DOM event listener?
+        </div>
+        <div class="collapse-content">
+          <p>
+            A DOM event listener detects user actions, like clicks or
+            keypresses, and triggers JavaScript functions to respond to those
+            actions.
+          </p>
+        </div>
+      </div>
+    </main>
+    <!-- blog main end -->
+    <!-- History main start  -->
+    <main id="history-main" class="hidden w-11/12 m-auto space-y-6"></main>
+    <!-- History main end  -->
+    <!-- modal start  -->
+    <dialog id="my_modal_1" class="modal text-center">
+      <div id="modal-box" class="modal-box"></div>
+    </dialog>
+    <!-- modal end  -->
     <script src="./index.js"></script>
+    <script src="./donation.js"></script>
   </body>
 </html>
